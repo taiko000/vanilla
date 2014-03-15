@@ -113,6 +113,10 @@ public final class PlaybackService extends Service
 	 * actions are received within 400 ms, the playback activity is opened
 	 * instead.
 	 */
+	public static String ACTION_REWIND = "org.kreed.vanilla.action.REWIND";
+	
+	public static String ACTION_FAST_FORWARD = "org.kreed.vanilla.action.FAST_FORWARD";
+	
 	public static final String ACTION_TOGGLE_PLAYBACK_DELAYED = "org.kreed.vanilla.action.TOGGLE_PLAYBACK_DELAYED";
 	/**
 	 * Action for startService: toggle playback on/off.
@@ -467,10 +471,18 @@ public final class PlaybackService extends Service
 	{
 		if (intent != null) {
 			String action = intent.getAction();
-
+			
 			if (ACTION_TOGGLE_PLAYBACK.equals(action)) {
 				playPause();
-			} else if (ACTION_TOGGLE_PLAYBACK_NOTIFICATION.equals(action)) {
+			} 
+			else if(ACTION_FAST_FORWARD.equals(action)) {
+		    	forward(3);
+			}
+			else if(ACTION_REWIND.equals(action)) {
+				rewind(3);
+			}
+			
+			else if (ACTION_TOGGLE_PLAYBACK_NOTIFICATION.equals(action)) {
 				mForceNotificationVisible = true;
 				synchronized (mStateLock) {
 					if ((mState & FLAG_PLAYING) != 0)

@@ -132,6 +132,8 @@ THE SOFTWARE.
 				<action android:name="org.kreed.vanilla.action.TOGGLE_PLAYBACK" />
 				<action android:name="org.kreed.vanilla.action.NEXT_SONG" />
 				<action android:name="org.kreed.vanilla.action.PREVIOUS_SONG" />
+				<action android:name="org.kreed.vanilla.action.REWIND" />
+				<action android:name="org.kreed.vanilla.action.FAST_FORWARD" />
 			</intent-filter>
 		</service>
 		<activity

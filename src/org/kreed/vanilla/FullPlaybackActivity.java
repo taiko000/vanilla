@@ -673,9 +673,9 @@ public class FullPlaybackActivity extends PlaybackActivity
 		if (view == mOverlayText && (mState & PlaybackService.FLAG_EMPTY_QUEUE) != 0) {
 			setState(PlaybackService.get(this).setFinishAction(SongTimeline.FINISH_RANDOM));
 		} else if (view == mCoverView) {
-			performAction(mCoverPressAction);
+			//performAction(mCoverPressAction);
 		} else if (view.getId() == R.id.info_table) {
-			openLibrary(mCurrentSong);
+			//openLibrary(mCurrentSong);
 		} else if(view == mForwardButton) {
 			PlaybackService.get(this).forward(3);	
 			long position = PlaybackService.hasInstance() ? PlaybackService.get(this).getPosition() : 0;
