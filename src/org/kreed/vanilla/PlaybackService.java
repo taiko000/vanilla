@@ -1307,6 +1307,22 @@ public final class PlaybackService extends Service
 		long position = (long)mMediaPlayer.getDuration() * progress / 1000;
 		mMediaPlayer.seekTo((int)position);
 	}
+	
+	public void rewind(int sec)
+	{
+		int newPosition = mMediaPlayer.getCurrentPosition()-sec*1000;
+		if(newPosition > 0)
+			mMediaPlayer.seekTo(newPosition);
+		else
+			mMediaPlayer.seekTo(0);
+	}
+	
+	public void forward(int sec)
+	{
+		int newPosition = mMediaPlayer.getCurrentPosition()+sec*1000;
+		if(newPosition <= mMediaPlayer.getDuration())
+			mMediaPlayer.seekTo(newPosition);
+	}
 
 	@Override
 	public IBinder onBind(Intent intents)

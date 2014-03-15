@@ -25,6 +25,7 @@ package org.kreed.vanilla;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.graphics.LightingColorFilter;
 import android.media.MediaMetadataRetriever;
 import android.os.Build;
 import android.os.Bundle;
@@ -44,6 +45,7 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
+
 /**
  * The primary playback screen with playback controls and large cover display.
  */
@@ -60,6 +62,8 @@ public class FullPlaybackActivity extends PlaybackActivity
 	private View mControlsBottom;
 
 	private SeekBar mSeekBar;
+	private View mForwardButton;
+	private View mRewindButton;
 	private TableLayout mInfoTable;
 	private TextView mElapsedView;
 	private TextView mDurationView;
@@ -111,6 +115,7 @@ public class FullPlaybackActivity extends PlaybackActivity
 	private TextView mComposerView;
 	private String mFormat;
 	private TextView mFormatView;
+	
 
 	@Override
 	public void onCreate(Bundle icicle)
@@ -175,6 +180,12 @@ public class FullPlaybackActivity extends PlaybackActivity
 		mSeekBar = (SeekBar)findViewById(R.id.seek_bar);
 		mSeekBar.setMax(1000);
 		mSeekBar.setOnSeekBarChangeListener(this);
+		mForwardButton = (findViewById(R.id.forwardButton));
+		mForwardButton.getBackground().setColorFilter(new LightingColorFilter(0xFFFFFFFF, 0xFF0B91FF));
+		mForwardButton.setOnClickListener(this);
+		mRewindButton = (findViewById(R.id.rewindButton));
+		mRewindButton.getBackground().setColorFilter(new LightingColorFilter(0xFFFFFFFF, 0xFF0B91FF));
+		mRewindButton.setOnClickListener(this);
 		mQueuePosView = (TextView)findViewById(R.id.queue_pos);
 
 		mGenreView = (TextView)findViewById(R.id.genre);
@@ -662,12 +673,22 @@ public class FullPlaybackActivity extends PlaybackActivity
 		if (view == mOverlayText && (mState & PlaybackService.FLAG_EMPTY_QUEUE) != 0) {
 			setState(PlaybackService.get(this).setFinishAction(SongTimeline.FINISH_RANDOM));
 		} else if (view == mCoverView) {
-			performAction(mCoverPressAction);
+			//performAction(mCoverPressAction);
 		} else if (view.getId() == R.id.info_table) {
-			openLibrary(mCurrentSong);
+			//openLibrary(mCurrentSong);
+		} else if(view == mForwardButton) {
+			PlaybackService.get(this).forward(3);	
+			long position = PlaybackService.hasInstance() ? PlaybackService.get(this).getPosition() : 0;
+			mElapsedView.setText(DateUtils.formatElapsedTime(mTimeBuilder, position / 1000));
+		} else if(view == mRewindButton) {
+			PlaybackService.get(this).rewind(3);
+			long position = PlaybackService.hasInstance() ? PlaybackService.get(this).getPosition() : 0;
+			mElapsedView.setText(DateUtils.formatElapsedTime(mTimeBuilder, position / 1000));
 		} else {
 			super.onClick(view);
 		}
+		
+		
 	}
 
 	@Override

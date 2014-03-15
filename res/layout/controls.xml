@@ -20,12 +20,16 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 -->
+
+
+<!-- layout weight has been set to 0 for the non play pause buttons to make them invisible -->
+
 <merge xmlns:android="http://schemas.android.com/apk/res/android">
 	<ImageButton
 		android:id="@+id/shuffle"
 		android:layout_height="fill_parent"
 		android:layout_width="0px"
-		android:layout_weight="1"
+		android:layout_weight="0"
 		android:background="@drawable/selectable_item_bg"
 		android:scaleType="fitCenter"
 		android:src="@drawable/shuffle_inactive"
@@ -34,7 +38,7 @@ THE SOFTWARE.
 		android:id="@+id/previous"
 		android:layout_height="fill_parent"
 		android:layout_width="0px"
-		android:layout_weight="1"
+		android:layout_weight="0"
 		android:background="@drawable/selectable_item_bg"
 		android:scaleType="fitCenter"
 		android:src="@drawable/previous"
@@ -52,7 +56,7 @@ THE SOFTWARE.
 		android:id="@+id/next"
 		android:layout_height="fill_parent"
 		android:layout_width="0px"
-		android:layout_weight="1"
+		android:layout_weight="0"
 		android:background="@drawable/selectable_item_bg"
 		android:scaleType="fitCenter"
 		android:src="@drawable/next"
@@ -61,7 +65,7 @@ THE SOFTWARE.
 		android:id="@+id/end_action"
 		android:layout_height="fill_parent"
 		android:layout_width="0px"
-		android:layout_weight="1"
+		android:layout_weight="0"
 		android:background="@drawable/selectable_item_bg"
 		android:scaleType="fitCenter"
 		android:src="@drawable/repeat_inactive"

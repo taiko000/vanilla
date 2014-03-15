@@ -54,6 +54,16 @@ public class PreferencesActivity extends PreferenceActivity {
 			addPreferencesFromResource(R.xml.preferences);
 		}
 	}
+	
+
+	
+	//@Override
+	@TargetApi(19)
+	protected boolean isValidFragment (String fragmentName)
+	{
+	  return true; //fragment injection exploits are not a security risk for this application
+
+	}
 
 	@TargetApi(11)
 	@Override
