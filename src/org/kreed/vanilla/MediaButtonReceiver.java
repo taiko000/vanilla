@@ -174,8 +174,9 @@ public class MediaButtonReceiver extends BroadcastReceiver {
 			if (action == KeyEvent.ACTION_DOWN) {
 				long time = SystemClock.uptimeMillis();
 				if (time - sLastClickTime < DOUBLE_CLICK_DELAY) {
-					beep(context);
-					act = PlaybackService.ACTION_NEXT_SONG_AUTOPLAY;
+					//uncommented to disable double click
+//					beep(context);
+//					act = PlaybackService.ACTION_NEXT_SONG_AUTOPLAY;
 				} else {
 					act = PlaybackService.ACTION_TOGGLE_PLAYBACK;
 				}
