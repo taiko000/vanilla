@@ -112,19 +112,20 @@ THE SOFTWARE.
 
 		<LinearLayout
 		    android:id="@+id/controls_top"
-		    android:layout_height="175dp" >
+		    android:layout_height="384dp" >
 
 		    <LinearLayout
-		        android:layout_width="wrap_content"
+		        android:layout_width="0dp"
+		        android:layout_weight="0.4"
 		        android:layout_height="fill_parent"
 		        android:orientation="vertical" >
 
 		        <Button
 		            android:id="@+id/rewindButton"
 		            style="@android:style/Widget.Holo.Light.Button"
-		            android:layout_width="130dp"
-		            android:layout_height="wrap_content"
-		            android:layout_weight="0.43"
+		            android:layout_width="fill_parent"
+		            android:layout_height="0dp"
+			        android:layout_weight="1"
 		            android:text="" />
 
 		        <TextView
@@ -137,24 +138,25 @@ THE SOFTWARE.
 
 			<SeekBar
 			    android:id="@+id/seek_bar"
-			    android:layout_width="0px"
+			    android:layout_width="0dp"
 			    android:layout_height="200dp"
 			    android:layout_gravity="center"
-			    android:layout_weight="0.8"
+			    android:layout_weight="0.2"
 			    android:paddingLeft="18dip"
 			    android:paddingRight="18dip" />
 
 			<LinearLayout
-			    android:layout_width="wrap_content"
+			    android:layout_width="0dp"
+			    android:layout_weight="0.4"
 			    android:layout_height="fill_parent"
 			    android:orientation="vertical" >
 
 			    <Button
 			        android:id="@+id/forwardButton"
 			        style="@android:style/Widget.Holo.Light.Button"
-			        android:layout_width="130dp"
-			        android:layout_height="wrap_content"
-			        android:layout_weight="0.94"
+			        android:layout_width="fill_parent"
+			        android:layout_height="0dp"
+			        android:layout_weight="1"
 			        android:text="" />
 
 			    <TextView
