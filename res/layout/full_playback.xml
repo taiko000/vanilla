@@ -39,8 +39,7 @@ THE SOFTWARE.
 			android:id="@+id/elapsed"
 			android:layout_height="wrap_content"
 			android:layout_width="wrap_content"
-			android:layout_gravity="center"
-			android:paddingLeft="5dip" />
+			android:layout_gravity="center"/>
 		<SeekBar
 			android:id="@+id/seek_bar"
 			android:layout_height="wrap_content"
@@ -55,8 +54,7 @@ THE SOFTWARE.
 			android:id="@+id/duration"
 			android:layout_height="wrap_content"
 			android:layout_width="wrap_content"
-			android:layout_gravity="center"
-			android:paddingRight="5dip" />
+			android:layout_gravity="center"/>
 	</LinearLayout>
 	<LinearLayout
 		android:id="@+id/controls_bottom"

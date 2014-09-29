@@ -20,22 +20,11 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 -->
-<merge xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content" >
-
-<LinearLayout
-    android:layout_width="wrap_content"
-    android:layout_height="fill_parent"
-    android:orientation="vertical" >
-    
-  
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
 	<org.kreed.vanilla.CoverView
-	    android:id="@+id/cover_view"
-	    android:layout_width="fill_parent"
-	    android:layout_height="0dp" /> 
-	    <!-- height="0db" -->
-
+		android:id="@+id/cover_view"
+		android:layout_height="fill_parent"
+		android:layout_width="fill_parent" />
 	<TableLayout
 		android:id="@+id/info_table"
 		android:layout_width="fill_parent"
@@ -50,8 +39,7 @@ THE SOFTWARE.
 		<TableRow>
 			<TextView
 				android:text="@string/_title"
-				android:paddingRight="5dip"
-				android:gravity="right" />
+				android:gravity="end" />
 			<TextView
 				android:id="@+id/title"
 				android:textStyle="bold" />
@@ -63,125 +51,89 @@ THE SOFTWARE.
 		<TableRow>
 			<TextView
 				android:text="@string/_artist"
-				android:paddingRight="5dip"
-				android:gravity="right" />
+				android:gravity="end" />
 			<TextView android:id="@+id/artist" />
 		</TableRow>
 		<TableRow>
 			<TextView
 				android:text="@string/_album"
-				android:paddingRight="5dip"
-				android:gravity="right" />
+				android:gravity="end" />
 			<TextView android:id="@+id/album" />
 		</TableRow>
 		<TableRow>
 			<TextView
 				android:text="@string/_genre"
-				android:paddingRight="5dip"
 				android:gravity="right" />
 			<TextView android:id="@+id/genre" />
 		</TableRow>
 		<TableRow>
 			<TextView
 				android:text="@string/_track"
-				android:paddingRight="5dip"
 				android:gravity="right" />
 			<TextView android:id="@+id/track" />
 		</TableRow>
 		<TableRow>
 			<TextView
 				android:text="@string/_year"
-				android:paddingRight="5dip"
 				android:gravity="right" />
 			<TextView android:id="@+id/year" />
 		</TableRow>
 		<TableRow>
 			<TextView
 				android:text="@string/_composer"
-				android:paddingRight="5dip"
 				android:gravity="right" />
 			<TextView android:id="@+id/composer" />
 		</TableRow>
 		<TableRow>
 			<TextView
 				android:text="@string/_format"
-				android:paddingRight="5dip"
 				android:gravity="right" />
 			<TextView android:id="@+id/format" />
 		</TableRow>
-
-		<LinearLayout
-		    android:id="@+id/controls_top"
-		    android:layout_height="384dp" >
-
-		    <LinearLayout
-		        android:layout_width="0dp"
-		        android:layout_weight="0.4"
-		        android:layout_height="fill_parent"
-		        android:orientation="vertical" >
-
-		        <Button
-		            android:id="@+id/rewindButton"
-		            style="@android:style/Widget.Holo.Light.Button"
-		            android:layout_width="fill_parent"
-		            android:layout_height="0dp"
-			        android:layout_weight="1"
-		            android:text="" />
-
-		        <TextView
-		            android:id="@+id/elapsed"
-		            android:layout_width="wrap_content"
-		            android:layout_height="wrap_content"
-		            android:layout_gravity="center"
-		            android:textSize="30sp" />
-		    </LinearLayout>
-
+		<LinearLayout android:id="@+id/controls_top">
+			<TextView
+				android:id="@+id/elapsed"
+				android:layout_height="wrap_content"
+				android:layout_width="wrap_content"
+				android:textSize="10sp"
+				android:layout_gravity="center" />
 			<SeekBar
-			    android:id="@+id/seek_bar"
-			    android:layout_width="0dp"
-			    android:layout_height="200dp"
-			    android:layout_gravity="center"
-			    android:layout_weight="0.2"
-			    android:paddingLeft="18dip"
-			    android:paddingRight="18dip" />
-
-			<LinearLayout
-			    android:layout_width="0dp"
-			    android:layout_weight="0.4"
-			    android:layout_height="fill_parent"
-			    android:orientation="vertical" >
-
-			    <Button
-			        android:id="@+id/forwardButton"
-			        style="@android:style/Widget.Holo.Light.Button"
-			        android:layout_width="fill_parent"
-			        android:layout_height="0dp"
-			        android:layout_weight="1"
-			        android:text="" />
-
-			    <TextView
-			        android:id="@+id/duration"
-			        android:layout_width="wrap_content"
-			        android:layout_height="wrap_content"
-			        android:layout_gravity="center"
-			        android:textSize="30sp" />
-			</LinearLayout>
-
+				android:id="@+id/seek_bar"
+				android:layout_height="wrap_content"
+				android:layout_width="0px"
+				android:layout_gravity="center"
+				android:layout_weight="1"
+				android:paddingLeft="18dip"
+				android:paddingRight="18dip" />
+			<TextView
+				android:id="@+id/duration"
+				android:layout_height="wrap_content"
+				android:layout_width="wrap_content"
+				android:textSize="10sp"
+				android:layout_gravity="center" />
 		</LinearLayout>
 	</TableLayout>
 	<LinearLayout
 		android:id="@+id/controls_bottom"
-		android:layout_height="fill_parent"
+		android:layout_height="wrap_content"
 		android:layout_width="fill_parent"
 		android:layout_gravity="bottom|left"
 		android:layout_margin="0dip"
 		android:background="#a000"
 		android:orientation="horizontal">
 
-		<include
-		    android:layout_height="192dp"
-		    layout="@layout/controls" />
+		<Button
+		    android:id="@+id/rewindButton"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:text="-3s" />
 
-	</LinearLayout>
+		<Button
+		    android:id="@+id/forwardButton"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:text="+3s" />
+
+		<include layout="@layout/controls" />
 	</LinearLayout>
 </merge>

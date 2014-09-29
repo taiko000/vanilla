@@ -49,6 +49,7 @@ public class PlaylistAdapter extends CursorAdapter implements Handler.Callback, 
 		MediaStore.Audio.Playlists.Members.ARTIST,
 		MediaStore.Audio.Playlists.Members.AUDIO_ID,
 		MediaStore.Audio.Playlists.Members.PLAY_ORDER,
+		MediaStore.Audio.Playlists.Members.TRACK		
 	};
 
 	private final Context mContext;
@@ -108,7 +109,7 @@ public class PlaylistAdapter extends CursorAdapter implements Handler.Callback, 
 	public void bindView(View view, Context context, Cursor cursor)
 	{
 		TextView textView = (TextView)view;
-		textView.setText(cursor.getString(1));
+		textView.setText(cursor.getString(5) + " " + cursor.getString(1));
 		textView.setCompoundDrawablesWithIntrinsicBounds(mEditable ? mExpander : null, null, null, null);
 		textView.setTag(cursor.getLong(3));
 	}

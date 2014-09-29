@@ -37,6 +37,7 @@ THE SOFTWARE.
 		android:layout_height="wrap_content"
 		android:layout_gravity="bottom|left">
 		<LinearLayout
+		    android:orientation="horizontal"
 			android:id="@+id/limiter_layout"
 			android:layout_width="wrap_content"
 			android:layout_height="fill_parent" />
@@ -46,8 +47,7 @@ THE SOFTWARE.
 		android:layout_width="fill_parent"
 		android:layout_height="wrap_content"
 		android:layout_gravity="bottom"
-		android:paddingTop="4dip"
-		android:paddingLeft="4dip"
+		android:paddingTop="4dip"		
 		android:visibility="gone"
 		android:background="@drawable/search_background">
 		<EditText
