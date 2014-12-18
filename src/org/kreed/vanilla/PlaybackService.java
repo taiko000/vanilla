@@ -298,7 +298,7 @@ public final class PlaybackService extends Service
 	private Handler mHandler;
 	MediaPlayer mMediaPlayer;
 	private boolean mMediaPlayerInitialized;
-	private PowerManager.WakeLock mWakeLock;
+//	private PowerManager.WakeLock mWakeLock;
 	private NotificationManager mNotificationManager;
 	private AudioManager mAudioManager;
 	/**
@@ -424,8 +424,8 @@ public final class PlaybackService extends Service
 
 		updateVolume();
 
-		PowerManager powerManager = (PowerManager)getSystemService(POWER_SERVICE);
-		mWakeLock = powerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "VanillaMusicLock");
+//		PowerManager powerManager = (PowerManager)getSystemService(POWER_SERVICE);
+//		mWakeLock = powerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "VanillaMusicLock");
 
 		try {
 			mCallListener = new InCallListener();
@@ -570,8 +570,8 @@ public final class PlaybackService extends Service
 		if (mSensorManager != null && mShakeAction != Action.Nothing)
 			mSensorManager.unregisterListener(this);
 
-		if (mWakeLock != null && mWakeLock.isHeld())
-			mWakeLock.release();
+//		if (mWakeLock != null && mWakeLock.isHeld())
+//			mWakeLock.release();
 
 		super.onDestroy();
 	}
@@ -761,12 +761,12 @@ public final class PlaybackService extends Service
 				}
 
 				mHandler.removeMessages(RELEASE_WAKE_LOCK);
-				try {
-					if (mWakeLock != null)
-						mWakeLock.acquire();
-				} catch (SecurityException e) {
+//				try {
+//					if (mWakeLock != null)
+				//		mWakeLock.acquire();
+//				} catch (SecurityException e) {
 					// Don't have WAKE_LOCK permission
-				}
+//				}
 			} else {
 				if (mMediaPlayerInitialized)
 					mMediaPlayer.pause();
@@ -1275,10 +1275,10 @@ public final class PlaybackService extends Service
 		case BROADCAST_CHANGE:
 			broadcastChange(message.arg1, (Song)message.obj, message.getWhen());
 			break;
-		case RELEASE_WAKE_LOCK:
-			if (mWakeLock != null && mWakeLock.isHeld())
-				mWakeLock.release();
-			break;
+//		case RELEASE_WAKE_LOCK:
+//			if (mWakeLock != null && mWakeLock.isHeld())
+//				mWakeLock.release();
+//			break;
 		default:
 			return false;
 		}
